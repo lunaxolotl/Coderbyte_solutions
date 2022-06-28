@@ -1,0 +1,31 @@
+import numpy
+def SimpleMode(arr):
+  num = numpy.asarray(arr)
+  keys = []
+  indexes = []
+  counter = {}
+  maxi = 0;
+
+  for i in arr:
+    if i in counter:
+      counter[i] += 1
+    else:
+      counter[i] = 1
+     
+  maxi =counter[ max(counter, key=counter.get)]
+  for key in counter.keys():
+    
+    if counter[key] == maxi:
+      keys.append(key)
+  
+  for i in keys:
+    indexes.append(numpy.where(num==i)[0][0])
+
+  mini = min(indexes)
+
+  if maxi == 1:
+    return -1
+  else:
+    return arr[mini]
+  
+  return arr
