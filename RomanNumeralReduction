@@ -1,0 +1,27 @@
+def RomanNumeralReduction(strParam):
+  di = {"I" : 1 , "V" : 5, "X" : 10, "L": 50 , "C" : 100, "D" : 500 , "M" : 1000}
+  num = 0
+  arr = list(strParam)
+  
+  for el in arr:
+    num += di[el]
+
+  m = ["", "M", "MM", "MMM"]
+  c = ["", "C", "CC", "CCC", "CD", "D", 
+  "DC", "DCC", "DCCC", "CM"]
+  x = ["", "X", "XX", "XXX", "XL", "L",
+  "LX", "LXX", "LXXX", "XC"]
+  i = ["", "I", "II", "III", "IV", "V", 
+  "VI", "VII" , "VIII", "IX"]
+
+  thou = int(num / 1000)
+  hund = int((num % 1000) / 100)
+  ten = int(((num % 1000) % 100) / 10)
+  one = int((((num % 1000) % 100) % 10))
+
+  return m[thou]+c[hund]+x[ten]+i[one]
+  # code goes here
+  return strParam
+
+# keep this function call here 
+print RomanNumeralReduction(raw_input())
